@@ -26,7 +26,7 @@ jobs:
           command: 'sed -i "s/dbpass.*/${DB_PASS}/" environments/prod.env.ini'
       - run:
           name: Adding remenyicsalad.hu to known hosts
-          command: mkdir ~/.ssh && touch known_hosts && ssh-keyscan -H remenyicsalad.hu >> ~/.ssh/known_hosts
+          command: ssh-keyscan -H remenyicsalad.hu >> ~/.ssh/known_hosts
       - run:
           name: Deploy files to deploy server
           command: 'lftp -u ${FTP_USER},${FTP_PASS} -e "set ftp:sync-mode off;mirror -R --exclude .git/ --exclude .circleci/ --exclude LICENSE --exclude .gitignore --exclude .idea/ --exclude public/media/galleries; quit" ${FTP_HOST}'
