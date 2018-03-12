@@ -35,11 +35,6 @@ ErrorDocument 500 /error/errorcode/500
     Allow from all
 </Files>
 
-<Files library/Lot.php>
-    Order Allow,Deny
-    Allow from all
-</Files>
-
 ####################
 # Pass URL rewrite #
 ####################
