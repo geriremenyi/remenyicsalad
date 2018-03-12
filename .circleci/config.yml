@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Setting dbpass configuration
           command: 'sed -i "s/dbpass.*/${DB_PASS}/" environments/prod.env.ini'
-      -run:
+      - run:
           name: Adding remenyicsalad.hu to known hosts
           command: mkdir ~/.ssh && touch known_hosts && ssh-keyscan -H remenyicsalad.hu >> ~/.ssh/known_hosts
       - run:
